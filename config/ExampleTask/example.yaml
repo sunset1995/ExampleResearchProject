@@ -1,0 +1,31 @@
+ckpt_root: ckpt
+cuda: True
+num_workers: 8
+
+dataset:
+    name: ExampleDataset
+    common_kwargs:
+        hw: (256, 512)
+        n_classes: 10
+    train_kwargs:
+        length: 999
+        random_lr_flip: True
+    valid_kwargs:
+        length: 199
+
+training:
+    optim: Adam
+    epoch: 10
+    batch_size: 8
+    save_every: 5
+    optim_lr: 0.0001
+    optim_poly_gamma: 0.9
+
+model:
+    file: lib.model.Example
+    modelclass: ExampleNet
+    kwargs:
+        backbone: resnet18
+        n_classes: 10
+        dropout: 0.05
+
