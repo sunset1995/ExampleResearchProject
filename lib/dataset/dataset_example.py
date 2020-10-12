@@ -20,7 +20,7 @@ class ExampleDataset(data.Dataset):
 
     def __getitem__(self, idx):
         ''' Implement your input/target loading '''
-        x = torch.randn(3, *hw)
+        x = torch.randn(3, *self.hw)
         gt = torch.randint(0, self.n_classes, self.hw)
 
         ''' Augmentation if needed '''
